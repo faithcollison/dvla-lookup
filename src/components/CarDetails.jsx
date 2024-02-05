@@ -49,4 +49,4 @@ const CarDetails = ({ vehicleDetails }) => {
     </List>
   );
 };
-export default CarDetails;
+export {CarDetails}

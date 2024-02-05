@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CarDetails from "./CarDetails";
+import {CarDetails}from './index'
 import { getVehicleDetails } from "../api";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
@@ -56,4 +56,4 @@ const Lookup = () => {
     </div>
   );
 };
-export default Lookup;
+export {Lookup}

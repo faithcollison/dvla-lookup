@@ -1,6 +1,4 @@
-import "./App.css";
-import Lookup from "./components/Lookup";
-import Header from "./components/Header";
+import { Lookup, Header } from './components/index'
 import styled from "@emotion/styled";
 
 const Container = styled.div`
