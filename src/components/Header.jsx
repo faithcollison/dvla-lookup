@@ -1,7 +1,14 @@
+import styled from '@emotion/styled'
+
+const StyledText = styled.p`
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: large;
+`;
+
 const Header = () => {
 return (
     <>
-    <h1> DVLA Plate Checker</h1>
+    <StyledText> DVLA Plate Checker</StyledText>
     </>
 )
 }

@@ -1,17 +1,21 @@
 import { useState } from "react";
 import CarDetails from "./CarDetails";
-// import SearchBar from "./SearchBar";
 import { getVehicleDetails } from "../api";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
-// import IconButton from "@mui/material/IconButton";
-// // import SearchIcon from "@mui/icons-material/Search";
-// import TextField from "@mui/material/TextField";
-// // import SearchBar from "material-ui-search-bar";
+import styled from '@emotion/styled'
+
+const StyledInput = styled.input`
+width: 80%;
+padding: 10px;
+margin: 10px;
+box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+border-radius: 10px;
+`;
 
 const Lookup = () => {
   const [searchInput, setSearchInput] = useState("");
-  const [vehicleDetails, setVehicleDetails] = useState([]);
+  const [vehicleDetails, setVehicleDetails] = useState({});
 
   function handleChange(event) {
     setSearchInput(event.target.value);
@@ -29,7 +33,7 @@ const Lookup = () => {
     <div>
       <form className="searchbar">
         <label htmlFor="searchbar">
-          <input
+          <StyledInput
             type="text"
             id="searchbar"
             placeholder="Enter vehicle registration plate here..."
@@ -46,8 +50,9 @@ const Lookup = () => {
           <SearchIcon fontSize="large" color="action" />
         </Button>
       </form>
-      {/* <SearchBar setSearchInput={setSearchInput} searchInput={searchInput} setVehicleDetails={setVehicleDetails} /> */}
-      <CarDetails vehicleDetails={vehicleDetails} />
+      {Object.keys(vehicleDetails).length > 0 ? (
+        <CarDetails vehicleDetails={vehicleDetails.data} />
+      ) : null}
     </div>
   );
 };
