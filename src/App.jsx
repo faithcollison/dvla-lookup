@@ -1,20 +1,13 @@
+import { Container } from  "@mui/material"
+
 import { Lookup, Header } from './components/index'
-import styled from "@emotion/styled";
 
-const Container = styled.div`
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-`;
-
-function App() {
+export const App = () => {
   return (
-    <Container>
+    <Container maxWidth="md">
       <Header />
       <Lookup />
     </Container>
   );
 }
 
-export default App;

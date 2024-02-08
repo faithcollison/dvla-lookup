@@ -1,8 +1,6 @@
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
+import { List, ListItem, ListItemText } from  "@mui/material"
 
-const CarDetails = ({ vehicleDetails }) => {
+export const VehicleDetails = ({ vehicleDetails }) => {
   return (
     <List>
       <>
@@ -49,4 +47,4 @@ const CarDetails = ({ vehicleDetails }) => {
     </List>
   );
 };
-export {CarDetails}
+

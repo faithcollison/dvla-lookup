@@ -1,5 +1,3 @@
-import { CarDetails } from "./CarDetails";
-import { Lookup } from "./Lookup";
-import { Header } from "./Header";
-
-export { CarDetails, Lookup, Header }
+export * from "./VehicleDetails";
+export * from "./Lookup";
+export * from "./Header";

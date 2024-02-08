@@ -1,15 +1,9 @@
-import styled from '@emotion/styled'
+import { StyledText } from "./Header.styles"
 
-const StyledText = styled.p`
- font-family: Arial, Helvetica, sans-serif;
- font-size: large;
-`;
-
-const Header = () => {
+export const Header = () => {
 return (
     <>
     <StyledText> DVLA Plate Checker</StyledText>
     </>
 )
 }
-export {Header}

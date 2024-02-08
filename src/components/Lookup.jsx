@@ -1,21 +1,16 @@
 import { useState } from "react";
-import {CarDetails}from './index'
-import { getVehicleDetails } from "../api";
+
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
-import styled from '@emotion/styled'
 
-const StyledInput = styled.input`
-width: 80%;
-padding: 10px;
-margin: 10px;
-box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
-border-radius: 10px;
-`;
+import { VehicleDetails } from './index'
+import { getVehicleDetails } from "../api";
+import { StyledInput } from "./Lookup.styles"
 
-const Lookup = () => {
+
+export const Lookup = () => {
   const [searchInput, setSearchInput] = useState("");
-  const [vehicleDetails, setVehicleDetails] = useState({});
+  const [vehicleDetails, setVehicleDetails] = useState();
 
   function handleChange(event) {
     setSearchInput(event.target.value);
@@ -50,10 +45,10 @@ const Lookup = () => {
           <SearchIcon fontSize="large" color="action" />
         </Button>
       </form>
-      {Object.keys(vehicleDetails).length > 0 ? (
-        <CarDetails vehicleDetails={vehicleDetails.data} />
+      { vehicleDetails? (
+        <VehicleDetails vehicleDetails={vehicleDetails.data} />
       ) : null}
     </div>
   );
 };
-export {Lookup}
+
