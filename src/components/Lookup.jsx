@@ -28,7 +28,7 @@ export const Lookup = () => {
       setIsLoading(false)
     })
     .catch((err) => {
-      console.log(err, "error")
+      console.log(err)
       setIsLoading(false)
       setIsError(true)
     });
@@ -69,7 +69,7 @@ export const Lookup = () => {
         </Button>
       </form>
       { vehicleDetails? (
-        <VehicleDetails vehicleDetails={vehicleDetails.data} />
+        <VehicleDetails vehicleDetails={vehicleDetails} />
       ) : null}
     </div>
   );
