@@ -11,6 +11,7 @@ import { StyledInput } from "./Lookup.styles"
 export const Lookup = () => {
   const [searchInput, setSearchInput] = useState("");
   const [vehicleDetails, setVehicleDetails] = useState();
+  const [isLoading, setIsLoading] = useState(false)
 
   function handleChange(event) {
     setSearchInput(event.target.value);
@@ -18,10 +19,16 @@ export const Lookup = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
+    setIsLoading(true)
     getVehicleDetails(searchInput).then((data) => {
       setVehicleDetails(data);
       setSearchInput("");
+      setIsLoading(false)
     });
+  }
+
+  if(isLoading) {
+    return <h2> Loading... </h2>
   }
 
   return (
