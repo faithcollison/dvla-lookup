@@ -12,6 +12,7 @@ export const Lookup = () => {
   const [searchInput, setSearchInput] = useState("");
   const [vehicleDetails, setVehicleDetails] = useState();
   const [isLoading, setIsLoading] = useState(false)
+  const [isError, setIsError] = useState(false)
 
   function handleChange(event) {
     setSearchInput(event.target.value);
@@ -20,15 +21,30 @@ export const Lookup = () => {
   function handleSubmit(event) {
     event.preventDefault();
     setIsLoading(true)
-    getVehicleDetails(searchInput).then((data) => {
+    getVehicleDetails(searchInput)
+    .then((data) => {
       setVehicleDetails(data);
       setSearchInput("");
       setIsLoading(false)
+    })
+    .catch((err) => {
+      console.log(err, "error")
+      setIsLoading(false)
+      setIsError(true)
     });
   }
 
   if(isLoading) {
     return <h2> Loading... </h2>
+  }
+
+  if(isError) {
+    return (
+      <div>
+        <p> Car not found </p>
+        <p> Please try again </p>
+      </div>
+    )
   }
 
   return (
