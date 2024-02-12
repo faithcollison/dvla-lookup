@@ -1,9 +1,9 @@
 import { List, ListItem, ListItemText } from  "@mui/material"
 
 export const VehicleDetails = ({ vehicleDetails }) => {
-  console.log({vehicleDetails})
+  // console.log({vehicleDetails})
   return (
-    <List>
+    <List data-testid="vehicle-details">
       <>
         <ListItem>
           <ListItemText
