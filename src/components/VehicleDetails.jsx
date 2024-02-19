@@ -4,7 +4,6 @@ export const VehicleDetails = ({ vehicleDetails }) => {
 
   return (
     <List data-testid="vehicle-details">
-      <>
         <ListItem>
           <ListItemText
             primary="Registration Plate:"
@@ -44,7 +43,6 @@ export const VehicleDetails = ({ vehicleDetails }) => {
             secondary={`${vehicleDetails.motStatus} and expires on ${vehicleDetails.motExpiryDate}`}
           />
         </ListItem>
-      </>
     </List>
   );
 };
