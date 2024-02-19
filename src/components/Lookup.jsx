@@ -49,7 +49,7 @@ export const Lookup = () => {
         <LinearProgress />
       ) : (
         <form className="searchbar">
-          <label htmlFor="searchbar"> Registration Plate
+          <label htmlFor="searchbar"> Reg Plate
             <StyledInput
               type="text"
               id="searchbar"
