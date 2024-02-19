@@ -63,6 +63,7 @@ export const Lookup = () => {
             variant="contained"
             color="secondary"
             onClick={handleSubmit}
+            data-testid="search-button"
           >
             <SearchIcon fontSize="large" color="action" />
           </Button>
