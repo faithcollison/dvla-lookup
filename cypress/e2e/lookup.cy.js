@@ -1,5 +1,5 @@
-describe('My First Test', () => {
-  it('Visits homepage', () => {
+describe('testing dvla reg lookup', () => {
+  it('searches for plate, retrieves results', () => {
     cy.visit('https://faithcollison.github.io/dvla-lookup/')
     cy.findByLabelText("Reg Plate").type("MC20 FLY");
     cy.findByTestId("search-button").click();
