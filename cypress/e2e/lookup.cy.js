@@ -1,14 +1,14 @@
 describe('My First Test', () => {
   it('Visits homepage', () => {
     cy.visit('https://faithcollison.github.io/dvla-lookup/')
-    cy.findByLabelText("Reg Plate").type("MC20FLY");
+    cy.findByLabelText("Reg Plate").type("MC20 FLY");
     cy.findByTestId("search-button").click();
-    // cy.findByTestId("vehicle-details").within(() => {
-    //   cy.findByText("Registration Plate:").closest("li").findByText("MC20 FLY");
-    cy.get('[data-testid="vehicle-details"]').within(() => {
-      // Replace 'Registration Plate:' and 'MC20 FLY' with the actual text you expect
-      cy.contains('Registration Plate:').should('be.visible');
-      cy.contains('MC20 FLY').should('be.visible');
-    });
+    cy.findByTestId("vehicle-details").within(() => {
+      cy.findByText("Registration Plate:").closest("li").findByText("MC20FLY");
+      cy.findByText("Make:").closest("li").findByText("PEUGEOT");
+      cy.findByText("Colour:").closest("li").findByText("RED");
+      cy.findByText("Tax due on:").closest("li").findByText("2024-07-01");
+    })
+
   })
 })
