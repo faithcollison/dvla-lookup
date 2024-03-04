@@ -8,6 +8,7 @@ export async function getVehicleDetails(registrationNumber) {
           registrationNumber: registrationNumber
         }
       });
+
       return response.data;
   }
   
