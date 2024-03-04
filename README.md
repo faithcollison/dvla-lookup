@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is an Express server designed to access and display vehicle details from the DVLA API, using the vehicle registration plate as a search.
+This project accesses and displays vehicle details from the DVLA API, using the vehicle registration plate as a search.
 
 ## Features:
 Search bar to search for vehicle by registration plate
