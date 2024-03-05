@@ -10,8 +10,8 @@
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build",
-    "test:cypress": "cypress run --e2e --browser chrome",
-    "test:cypress:open": "cypress open --browser chrome"
+    "test:cypress:runh": "cypress run --e2e --browser chrome",
+    "test:cypress:open": "cypress open --e2e --browser chrome"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",

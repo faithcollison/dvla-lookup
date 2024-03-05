@@ -3,10 +3,10 @@ import { useState } from "react";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import LinearProgress from "@mui/material/LinearProgress";
-
+import { TextField } from "@mui/material";
 import { VehicleDetails } from "./index";
 import { getVehicleDetails } from "../api";
-import { StyledInput } from "./Lookup.styles";
+import { StyledForm } from "./Lookup.styles";
 
 export const Lookup = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -48,26 +48,25 @@ export const Lookup = () => {
       {isLoading ? (
         <LinearProgress />
       ) : (
-        <form className="searchbar">
-          <label htmlFor="searchbar"> Reg Plate
-            <StyledInput
-              type="text"
-              id="searchbar"
-              placeholder="Enter vehicle registration plate here..."
-              onChange={handleChange}
-              value={searchInput}
-            />
-          </label>
+        <StyledForm className="searchbar">
+          <TextField
+            fullWidth
+            label="Registration Number"
+            variant="outlined"
+            size="small"
+            onChange={handleChange}
+            value={searchInput}
+            placeholder="Enter vehicle registration plate here..."
+          />
           <Button
             size="small"
             variant="contained"
-            color="secondary"
             onClick={handleSubmit}
             data-testid="search-button"
           >
-            <SearchIcon fontSize="large" color="action" />
+            <SearchIcon fontSize="small" color="action" />
           </Button>
-        </form>
+        </StyledForm>
       )}
       {vehicleDetails ? (
         <VehicleDetails vehicleDetails={vehicleDetails} />
