@@ -1,9 +1,5 @@
-import { StyledText } from "./Header.styles"
+import { StyledText } from "./Header.styles";
 
 export const Header = () => {
-return (
-    <>
-    <StyledText> Vehicle Checker</StyledText>
-    </>
-)
-}
+  return <StyledText> Vehicle Checker</StyledText>;
+};

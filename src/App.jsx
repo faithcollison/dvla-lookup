@@ -20,7 +20,9 @@ export const App = () => {
         <Header />
         <Lookup />
         <Version />
-        <StyledButton onClick={toggleTheme}>{theme === "dark"? "Light Mode" : "Dark Mode"} </StyledButton>
+        <StyledButton onClick={toggleTheme}>
+          {theme === "dark" ? "Light Mode" : "Dark Mode"}{" "}
+        </StyledButton>
       </Container>
     </StyledApp>
   );
