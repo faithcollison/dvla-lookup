@@ -11,7 +11,8 @@
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build",
     "test:cypress:runh": "cypress run --e2e --browser chrome",
-    "test:cypress:open": "cypress open --e2e --browser chrome"
+    "test:cypress:open": "cypress open --e2e --browser chrome",
+    "open": "open https://faithcollison.github.io/dvla-lookup/"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",

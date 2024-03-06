@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { VehicleDetails } from "./index";
+import { getVehicleDetails } from "../api";
+import { StyledForm } from "./Lookup.styles";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import LinearProgress from "@mui/material/LinearProgress";
 import { TextField } from "@mui/material";
-import { VehicleDetails } from "./index";
-import { getVehicleDetails } from "../api";
-import { StyledForm } from "./Lookup.styles";
 
 export const Lookup = () => {
+  const { theme } = useContext(ThemeContext);
   const [searchInput, setSearchInput] = useState("");
   const [vehicleDetails, setVehicleDetails] = useState();
   const [isLoading, setIsLoading] = useState(false);
@@ -57,6 +59,16 @@ export const Lookup = () => {
             onChange={handleChange}
             value={searchInput}
             placeholder="Enter vehicle registration plate here..."
+            InputLabelProps={{
+              style: {
+                color: theme === "dark" ? "white" : "black",
+              },
+            }}
+            inputProps={{
+              style: {
+                color: theme === "dark" ? "white" : "black",
+              },
+            }}
           />
           <Button
             size="small"
