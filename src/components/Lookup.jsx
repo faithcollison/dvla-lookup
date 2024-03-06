@@ -50,7 +50,7 @@ export const Lookup = () => {
       {isLoading ? (
         <LinearProgress />
       ) : (
-        <StyledForm className="searchbar">
+        <StyledForm className="searchbar" onSubmit={handleSubmit}>
           <TextField
             fullWidth
             label="Registration Number"
@@ -73,7 +73,7 @@ export const Lookup = () => {
           <Button
             size="small"
             variant="contained"
-            onClick={handleSubmit}
+            // onClick={handleSubmit}
             data-testid="search-button"
           >
             <SearchIcon fontSize="small" color="action" />
