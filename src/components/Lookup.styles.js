@@ -1,8 +1,7 @@
-import styled from '@emotion/styled'
+import styled from "@emotion/styled";
 
- export const StyledForm = styled.form`
- display: flex;
- align-items: center;
- gap: 1rem;
- 
- `
+export const StyledForm = styled.form`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;

@@ -1,14 +1,15 @@
 import { List, ListItem, ListItemText } from "@mui/material";
-// import { StyledListItemText } from "./VehicleDetails.styles";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { useContext } from "react";
+import PropTypes from "prop-types";
+
 import styled from "@emotion/styled";
 
 const StyledListItemText = styled(ListItemText)(({ theme }) => ({
   color: theme === "dark" ? "white" : "black",
-  '& .MuiTypography-root': {
+  "& .MuiTypography-root": {
     color: theme === "dark" ? "white" : "black",
- },
+  },
 }));
 
 export const VehicleDetails = ({ vehicleDetails }) => {
@@ -67,4 +68,8 @@ export const VehicleDetails = ({ vehicleDetails }) => {
       </ListItem>
     </List>
   );
+};
+
+VehicleDetails.propTypes = {
+  vehicleDetails: PropTypes.object.isRequired,
 };

@@ -7,7 +7,7 @@ import { Global } from "@emotion/react";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Global styles={GlobalStyles}/>
+    <Global styles={GlobalStyles} />
     <ThemeProvider>
       <App />
     </ThemeProvider>
