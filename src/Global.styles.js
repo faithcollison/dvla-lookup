@@ -1,7 +1,11 @@
 import { css } from "@emotion/react";
 
 export const GlobalStyles = css`
-  body,
+  body {
+    margin: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
   html,
   #root {
     margin: 0;

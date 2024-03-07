@@ -1,0 +1,52 @@
+name: CI/CD
+on: push
+
+jobs:
+  run-unit-tests:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "18.16"
+      - name: Clean install
+        run: npm clean-install
+      - name: Run lint
+        run: npm run lint
+      # - name: Run unit tests
+      #   run: npm test
+
+  run-e2e-tests:
+    name: Run End-to-End Tests
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node16.17.0-chrome106
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cypress-io/github-action@v5
+        with:
+          start: npm run dev
+          # The "wait-on" value needs to match "baseUrl" in cypress.config.js.
+          wait-on: "http://localhost:5173"
+          browser: chrome
+
+  deploy:
+    name: Deploy to gh-pages
+    if: github.ref_type == 'tag'
+    needs: [run-unit-tests, run-e2e-tests]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "18.16"
+      - name: Clean install
+        run: npm clean-install
+      - name: Build
+        run: npm run build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

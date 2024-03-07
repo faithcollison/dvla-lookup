@@ -18,6 +18,29 @@ export const VehicleDetails = ({ vehicleDetails, setVehicleDetails }) => {
     setVehicleDetails();
   }
 
+  // return (
+  //   <div>
+  //     <List data-testid="vehicle-details">
+  //       {Object.entries(vehicleDetails).map(([key, value]) => {
+  //         return (
+  //           <ListItem key={key}>
+  //             <StyledListItemText
+  //               theme={theme}
+  //               primary={key}
+  //               secondary={value}
+  //             />
+  //           </ListItem>
+  //         );
+  //       })}
+  //     </List>
+  //     <p>
+  //       {" "}
+  //       <Button variant="outlined" color="error" onClick={handleReset}>
+  //         Clear
+  //       </Button>{" "}
+  //     </p>
+  //   </div>
+  // );
   return (
     <List data-testid="vehicle-details">
       <ListItem>
