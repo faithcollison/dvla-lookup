@@ -1,8 +1,8 @@
-import { List, ListItem, ListItemText } from "@mui/material";
-import { ThemeContext } from "../contexts/ThemeContext";
 import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 import PropTypes from "prop-types";
 
+import { List, ListItem, ListItemText, Button } from "@mui/material";
 import styled from "@emotion/styled";
 
 const StyledListItemText = styled(ListItemText)(({ theme }) => ({
@@ -12,8 +12,11 @@ const StyledListItemText = styled(ListItemText)(({ theme }) => ({
   },
 }));
 
-export const VehicleDetails = ({ vehicleDetails }) => {
+export const VehicleDetails = ({ vehicleDetails, setVehicleDetails }) => {
   const { theme } = useContext(ThemeContext);
+  function handleReset() {
+    setVehicleDetails();
+  }
 
   return (
     <List data-testid="vehicle-details">
@@ -66,10 +69,17 @@ export const VehicleDetails = ({ vehicleDetails }) => {
           secondary={`${vehicleDetails.motStatus} and expires on ${vehicleDetails.motExpiryDate}`}
         />
       </ListItem>
+      <p>
+        <Button variant="outlined" color="error" onClick={handleReset}>
+          {" "}
+          Clear{" "}
+        </Button>
+      </p>
     </List>
   );
 };
 
 VehicleDetails.propTypes = {
   vehicleDetails: PropTypes.object.isRequired,
+  setVehicleDetails: PropTypes.object.isRequired,
 };

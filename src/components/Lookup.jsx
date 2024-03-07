@@ -4,13 +4,17 @@ import { getVehicleDetails } from "../api";
 import { StyledForm } from "./Lookup.styles";
 import { ThemeContext } from "../contexts/ThemeContext";
 
-import Button from "@mui/material/Button";
+import {
+  ToggleButtonGroup,
+  ToggleButton,
+  Button,
+  TextField,
+  LinearProgress,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import LinearProgress from "@mui/material/LinearProgress";
-import { TextField } from "@mui/material";
 
 export const Lookup = () => {
-  const { theme } = useContext(ThemeContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const [searchInput, setSearchInput] = useState("");
   const [vehicleDetails, setVehicleDetails] = useState();
   const [isLoading, setIsLoading] = useState(false);
@@ -73,16 +77,39 @@ export const Lookup = () => {
           <Button
             size="small"
             variant="contained"
-            // onClick={handleSubmit}
             data-testid="search-button"
+            onClick={handleSubmit}
           >
             <SearchIcon fontSize="small" color="action" />
           </Button>
         </StyledForm>
       )}
       {vehicleDetails ? (
-        <VehicleDetails vehicleDetails={vehicleDetails} />
+        <VehicleDetails
+          vehicleDetails={vehicleDetails}
+          setVehicleDetails={setVehicleDetails}
+        />
       ) : null}
+      <div style={{ position: "fixed", bottom: 0, left: 0, margin: "20px" }}>
+        <ToggleButtonGroup
+          value={theme}
+          color="primary"
+          exclusive
+          onChange={toggleTheme}
+          aria-label="theme toggle"
+        >
+          <ToggleButton
+            value="light"
+            aria-label="light mode"
+            style={{ color: theme === "dark" ? "white" : "inherit" }}
+          >
+            𖤓
+          </ToggleButton>
+          <ToggleButton value="dark" aria-label="dark mode">
+            ☾
+          </ToggleButton>
+        </ToggleButtonGroup>
+      </div>
     </div>
   );
 };
