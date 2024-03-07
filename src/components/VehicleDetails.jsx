@@ -81,5 +81,5 @@ export const VehicleDetails = ({ vehicleDetails, setVehicleDetails }) => {
 
 VehicleDetails.propTypes = {
   vehicleDetails: PropTypes.object.isRequired,
-  setVehicleDetails: PropTypes.object.isRequired,
+  setVehicleDetails: PropTypes.func.isRequired,
 };

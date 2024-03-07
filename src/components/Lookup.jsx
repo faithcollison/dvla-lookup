@@ -56,6 +56,8 @@ export const Lookup = () => {
       ) : (
         <StyledForm className="searchbar" onSubmit={handleSubmit}>
           <TextField
+            color="primary"
+            focused
             fullWidth
             label="Registration Number"
             variant="outlined"
